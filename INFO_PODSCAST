@@ -1,0 +1,65 @@
+
+E2E: se mofiica IP-ul adica de unde esti.
+
+CAll de DE  
+http://deliveryengine.autodsp.adswizz.com:8090/swfIndex?reqType=AdsSetup&protocolVersion=4.0&zoneId=1231
+
+Copiezi impresia, copiezi un URL.
+
+CPM campanie + extra fee pe segment.
+
+
+Se ia fee pe segment si se calculeaza 1000 de impresii. Poti face la 10 impresii. 
+
+Numere mai rotunde la CPM , sa se calculeze.
+
+
+Custom Reports : FEE .
+
+
+
+0.50 cents-> Data cost si in total Spend , Total CPM.
+
+
+{
+    "code": "invalid.json",
+    "message": "Cannot deserialize value of type `java.math.BigDecimal` from String \"bla bla\": not a valid representation"
+}
+
+
+
+
+
+
+Request URL: https://audiomatic.devel.adswizz.com/api/v2/commons/dmp/providers/Podscribe/groups/mediatopics
+
+
+Request URL: https://audiomatic.devel.adswizz.com/api/v2/campaigns/2167/targeting/ads/1233739?grouped=true
+
+
+[{"code":"t","name":"Topics (TextRazor)"},{"code":"ct","name":"Coarse Topics (TextRazor)"},{"code":"mediatopics","name":"Media Topics"},{"code":"iab","name":"IAB Categories"},{"code":"newscodes","name":"News Codes"}]
+
+pe devel nu sunt date , 
+
+
+C3 Engine de al ifului . 
+
+Catalina de la IF sa vorbesc cu ea sa imi puna Date.  
+
+ 
+Sa vad cu domain-api cum  fac.
+
+Streamed vs Download - currency agentiei 0 , e bine de stiut . 
+
+Valorea 0 penttru ele.
+
+pentru productie sunt niste bucketuri din R&I.
+
+
+
+
+
+
+
+
+

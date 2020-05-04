@@ -1,0 +1,17 @@
+{
+  "watchForFilesChanges": false,
+  "chromeWebSecurity": false,
+  "viewPortWidth": 1000,
+  "viewPortHeight": 600,
+  "waitForAnimation": true,
+  "animationDistanceTreshold": 20,
+  "defaultCommandTimeOut": 165000,
+  "execTimeout": 1500000,
+  "pageLoadTimeout": 195000,
+  "requestTimeout": 195000,
+  "responseTimeout": 195000,
+  "video": true,
+  "failStatusCode": false,
+  "projectId": "61gea2",
+  "ignoreTestFiles": ["*.js","*.md"]
+}

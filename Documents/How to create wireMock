@@ -1,0 +1,68 @@
+
+
+In infra folder : 
+
+ 1. In test directory > resources > wiremock  
+ 2. Create directory with your service and 2 sub directories 
+    * _files with sub directory 
+            * _responses 
+    * mappings 
+  where we regualiry have _proxy.json file 
+  Sample : 
+         {
+        "name": "second-screen-service-proxy",
+        "priority": 10,
+        "request": {
+        "urlPattern": ".*"
+          },
+        "response": {
+        "proxyBaseUrl": "http://???:8080/"
+          } 
+         }
+
+
+3. Modify POM to iniate docker image on new service.
+
+                            <image>
+                                    <alias>qa-automation.second-screen-wm</alias>
+                                    <name>com.adswizz.domain.qa/qa-automation.second-screen-wm</name>
+                                    <external>
+                                        <type>properties</type>
+                                        <prefix>docker.wm</prefix>
+                                        <mode>override</mode>
+                                    </external>
+                                    <run>
+                                        <namingStrategy>alias</namingStrategy>
+                                        <network>
+                                            <mode>custom</mode>
+                                            <name>qa-automation-tests</name>
+                                            <alias>qa-automation.second-screen-wm</alias>
+                                        </network>
+                                        <ports>
+                                            <port>59104:9100</port>
+                                        </ports>
+                                        <wait>
+                                            <time>5000</time>
+                                        </wait>
+                                        <log>
+                                            <prefix>second-screen&gt;_</prefix>
+                                            <color>yellow</color>
+                                        </log>
+                                        <volumes>
+                                            <bind>
+                                                <volume>
+                                                    ${project.basedir}/src/test/resources/wiremock/second-screen/mappings:/servers/wiremock/mappings
+                                                </volume>
+                                                <volume>
+                                                    ${project.basedir}/src/test/resources/wiremock/second-screen/__files:/servers/wiremock/__files
+                                                </volume>
+                                            </bind>
+                                        </volumes>
+                                    </run>
+                                </image>
+
+
+
+ 4. Execute command mvn -pl infra docker:build docker:start to see if image of your service is started.
+
+

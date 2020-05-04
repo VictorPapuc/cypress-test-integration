@@ -1,0 +1,25 @@
+
+
+
+Podscribe Augmentation: 
+
+ Check if the Poscribe Augmentation Service cand be created
+
+
+Podcast Targeting Rules: 
+
+  Verify the targeting dropdown will contain a new section Podcast Targeting, with two new rules underneath  
+  Check if Podscribe Contextual Targeting rule is avaiable when selection the new section Podcast Tageting
+  Check if Podcast Inventory rule is avaiable when selection the new section Podcast Tageting
+  
+Targeting Podscribe 
+
+  Verify if the user should is able to target transcribed Podcast inventory contextually, by selecting segmentes from the Podscribe rule
+  Check if operators have functionallity is any of /is not any of 
+  Check if the user can filter the segment categories 
+  Check if Segments categories cand be selected 
+  Check if Segments categories can be removed .
+  Check if the segments regfreshes dynamically(based on the curent Podscribe inventory)
+
+Targeting Podcast Inventory 
+

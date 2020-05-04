@@ -1,0 +1,29 @@
+Pasi sa citesti un log.
+
+dai docker ps -a sa vezi containerele
+
+copiezi primul id 
+
+de la as-api
+
+si dai
+
+docker exec -it id bash
+
+in loc de id, te-ai prins, pui id-ul copiat
+
+dupa dai cd logs
+
+si tail -f app.log 
+
+ceva de genul
+
+daca vrei sa cauti dupa un cuvant anume, dai cu grep
+
+gen tail -f app.log | grep 'cuvant'
+
+pune in notitie
+
+
+
+
