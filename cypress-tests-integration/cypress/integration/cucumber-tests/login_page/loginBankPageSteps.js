@@ -22,7 +22,7 @@ When('The user enters number of days: {int} and chooses {string} month', (daysNu
 })
 
 When('Check box for Remember for this device', ()=>{  
-    LoginPageBank.checkBox()
+    LoginPageBank.checkBox() 
 })
 
 When('The user blocks the user', ()=>{

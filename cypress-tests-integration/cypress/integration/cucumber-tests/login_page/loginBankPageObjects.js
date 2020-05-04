@@ -20,8 +20,8 @@ class LoginPageBank{
 
     static verifyLoginPage(){
 
-        cy.wait(5000)
-        cy.get(LoginPageObjects.languageButton).should('be.visible')
+        
+        cy.get(LoginPageObjects.languageButton).should('be.visible').wait(3000)
         cy.get(LoginPageObjects.loginButton).should('be.visible')
        
     }
@@ -40,7 +40,6 @@ class LoginPageBank{
         cy.get(LoginPageObjects.languageButton).should('be.visible')
         cy.get(LoginPageObjects.languageButton).its('length').should('eq', 2)
         cy.get(LoginPageObjects.languageButton).contains(language).click()
-        cy.wait(2000)
     
     }
 
@@ -53,7 +52,6 @@ class LoginPageBank{
      
      cy.xpath(ErrorMessagesLoginPage.errorMessageWrongNickNameLengthNumber)
             .should('be.visible')
-             cy.wait(2000)
      cy.xpath(ErrorMessagesLoginPage.errorMessageWrongNickNameLengthNumber)
             .contains(errorMessage)     
     }
@@ -93,9 +91,11 @@ class LoginPageBank{
 
     static verifyLoginSuccesfull(name){
 
-        cy.wait(12000)
-        cy.get(accountName).should('be.visible')
+        cy.wait(12000).get(accountName).should('be.visible')
         cy.get(accountName).contains('Jiří Spokojený')
+
+        // cy.get(accountName).wait(2000).should('be.visible')
+       
     }
 
 }
