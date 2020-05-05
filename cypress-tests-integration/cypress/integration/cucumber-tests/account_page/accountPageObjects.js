@@ -28,26 +28,23 @@ const setLanguageValue = ['en', 'cs']
 class AccountPage{
 
     static enterSettingsPage(){
-        cy.wait(1000)
-        cy.get(MainMenuObjects.settingsButtons).should('be.visible')
+        cy.wait(10000).get(MainMenuObjects.settingsButtons).should('be.visible')
         cy.get(MainMenuObjects.settingsButtons).click({multiple:true})
-        cy.wait(1000)
-        cy.get(MainMenuObjects.profileSettings).should('be.visible')
+        cy.wait(10000).get(MainMenuObjects.profileSettings).should('be.visible')
         cy.get(MainMenuObjects.profileSettings).click()
     }
 
     static setTheLanguage(language){
         
         if(language==='English'){
-            cy.wait(10000)
+
             language = setLanguageValue[0]
-            cy.get(ProfileMenu.languageSelector).should('be.visible')   
+            cy.wait(8000).get(ProfileMenu.languageSelector).should('be.visible')   
             cy.get(ProfileMenu.languageSelector).check([setLanguageValue[0]])
      
        
         }else if (language==='Czech'){
             language = setLanguageValue[1]
-            cy.wait(3000)
             cy.get(ProfileMenu.languageSelector).should('be.visible')   
             cy.get(ProfileMenu.languageSelector).check([setLanguageValue[1]])
     
@@ -57,21 +54,21 @@ class AccountPage{
     }
 
     static enterOverviewPage(){
-        cy.wait(15000)
-        cy.get(MainMenuObjects.overViewMenu).should('be.visible')
+
+        cy.wait(14000).get(MainMenuObjects.overViewMenu).should('be.visible')
         cy.get(MainMenuObjects.overViewMenu).click()
     }
 
     static typeInsSearchBar(transactionValue){
 
-        cy.get(MainMenuObjects.searchBar).should('be.visible')
+       cy.wait(2000).get(MainMenuObjects.searchBar).should('be.visible')
         cy.get(MainMenuObjects.searchBar).type(transactionValue) 
       
     }
 
     static checkBoxDisplayOutgoingTransactionsInRed(){ 
-        cy.wait(30000)
-        cy.get(ProfileMenu.checkBox).should('be.visible')
+ 
+        cy.wait(12000).get(ProfileMenu.checkBox).should('be.visible')
         cy.get(ProfileMenu.checkBox).click({multiple:true})
         
     }
@@ -80,47 +77,33 @@ class AccountPage{
 
         switch(transactionPosition) {
             case 1:
-                cy.wait(2000)
                 cy.get(Transactions.transactionIds[0]).click()
-                cy.wait(10000)
                 break;
             case 2:
-                 cy.wait(2000)
                  cy.get(Transactions.transactionIds[1]).click()
-                 cy.wait(10000)
                  break;
              case 3:
-                 cy.wait(2000)
                  cy.get(Transactions.transactionIds[2]).click()
-                 cy.wait(10000)
                  break;
              case 4:
-                  cy.wait(2000)
                   cy.get(Transactions.transactionIds[3]).click()
-                  cy.wait(10000)
                   break;
              case 5:
-                  cy.wait(2000)
                   cy.get(Transactions.transactionIds[4]).click()
-                  cy.wait(10000)
                   break;
              case 6:
-                  cy.wait(2000)
                   cy.get(Transactions.transactionIds[5]).click()
-                  cy.wait(10000)
                   break;         
           }
     }
 
     static verifyTransactionCategory (category){
-        cy.wait(2000)
         cy.contains(category)
     
     }
 
     static verifyColor(){
 
-        cy.wait(2000)
         cy.get(Transactions.transaction).should('be.visible')
         //Need to Review : https://github.com/chaijs/chai-jquery/issues/63
         // expect($('div')).to.have.css('color', 'rgb(255, 0, 0)');
@@ -129,7 +112,6 @@ class AccountPage{
 
     static verifyTransactions(date){
 
-      cy.wait(2000)
       cy.get(Transactions.transaction).should('be.visible')
 
       if(cy.contains(date)==='February'){
@@ -147,7 +129,6 @@ class AccountPage{
     }
 
     static verifyMessageNoSearchCriteria(message){
-        cy.wait(2000)
         cy.contains(message)
     }
 
