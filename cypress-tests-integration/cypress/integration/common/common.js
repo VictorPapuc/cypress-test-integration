@@ -20,7 +20,6 @@ defineStep('The user access George Application Login page',()=>{
 })
 
 defineStep('The user access George Login page', ()=>{
-    //The URL is Valid but we use it for wrong login.
     cy.login(InvalidURL)
     LoginPageBank.verifyLoginPage()
 
