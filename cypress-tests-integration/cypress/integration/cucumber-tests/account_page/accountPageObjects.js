@@ -28,9 +28,9 @@ const setLanguageValue = ['en', 'cs']
 class AccountPage{
 
     static enterSettingsPage(){
-        cy.wait(10000).get(MainMenuObjects.settingsButtons).should('be.visible')
+        cy.wait(12000).get(MainMenuObjects.settingsButtons).should('be.visible')
         cy.get(MainMenuObjects.settingsButtons).click({multiple:true})
-        cy.wait(10000).get(MainMenuObjects.profileSettings).should('be.visible')
+        cy.wait(3000).get(MainMenuObjects.profileSettings).should('be.visible')
         cy.get(MainMenuObjects.profileSettings).click()
     }
 
@@ -110,22 +110,42 @@ class AccountPage{
 
     }
 
-    static verifyTransactions(date){
+    static verifyTransactions(transactions,date, cost , currency){
 
-      cy.get(Transactions.transaction).should('be.visible')
-
-      if(cy.contains(date)==='February'){
-        cy.get(Transactions.transactionIds[0]).should('be.visible')
-        cy.get(Transactions.transactionIds[1]).should('be.visible')
-        cy.get(Transactions.transactionIds[2]).should('be.visible')
-        cy.get(Transactions.transactionIds[3]).should('be.visible')
-        cy.get(Transactions.transactionIds[4]).should('be.visible')
-        cy.get(Transactions.transactionIds[5]).should('be.visible')
-
-      }else if(cy.contains(date)==='January'){
+      cy.wait(2000).get(Transactions.transaction).should('be.visible')
+      cy.get('footer').scrollIntoView()
+   
+      if(date === 'January'){
         cy.get(Transactions.transactionIds[6]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
+      }else if(date ==='February'){
+        cy.get(Transactions.transactionIds[0]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
+        cy.get(Transactions.transactionIds[1]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
+        cy.get(Transactions.transactionIds[2]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
+        cy.get(Transactions.transactionIds[3]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
+        cy.get(Transactions.transactionIds[4]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
+        cy.get(Transactions.transactionIds[5]).should('be.visible')
+        .and('contain',transactions)
+        .and('contain', cost)
+        .and('contain', currency)
       }
-
     }
 
     static verifyMessageNoSearchCriteria(message){
@@ -133,5 +153,8 @@ class AccountPage{
     }
 
 }
+//     after( function(){
+//         cy.logout()
+// })
 
 export default AccountPage

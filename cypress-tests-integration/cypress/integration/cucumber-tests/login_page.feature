@@ -3,12 +3,14 @@ Feature: Login to Application
 As a valid user I want to log in into Application
 As a invalid user I should be prompted with error message
 
-Scenario: Login to George Bank Application
+Scenario Outline: Login to George Bank Application
  Given The user access George Application Login page
  When The user switches login page language to "English"
  And Access Page with correct credentials
- Then The user should see Account Name: 'Jiří Spokojený'
-
+ Then The user should see Account Name:
+  | name     | surname            | 
+  | surname  | aslak@cucumber.io  | 
+  
 #Negativ Scenario
 Scenario: Login in to George Bank Application with Nickname that is less than 6 characters
  Given The user access George Login page
