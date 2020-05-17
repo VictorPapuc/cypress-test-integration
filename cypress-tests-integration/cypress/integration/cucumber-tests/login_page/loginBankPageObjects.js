@@ -20,10 +20,12 @@ class LoginPageBank{
 
     static verifyLoginPage(){
 
-        
-        cy.get(LoginPageObjects.languageButton).should('be.visible').wait(3000)
+        cy.get(LoginPageObjects.languageButton)
+        .should('be.visible')
+        .wait(3000)
+        .and('contain', 'Česky')
         cy.get(LoginPageObjects.loginButton).should('be.visible')
-       
+         
     }
 
     static clickLogInButton(){
@@ -40,7 +42,7 @@ class LoginPageBank{
         cy.get(LoginPageObjects.languageButton).should('be.visible')
         cy.get(LoginPageObjects.languageButton).its('length').should('eq', 2)
         cy.get(LoginPageObjects.languageButton).contains(language).click()
-    
+        
     }
 
     static typeNickname(nickname){
@@ -89,14 +91,16 @@ class LoginPageBank{
         cy.get(LoginPageObjects.checkBox).click({force :true});
     }
 
-    static verifyLoginSuccesfull(name){
-
-        cy.wait(12000).get(accountName).should('be.visible')
-        cy.get(accountName).contains('Jiří Spokojený')
-
-        // cy.get(accountName).wait(2000).should('be.visible')
-       
+    static verifyLoginSuccesfull(){
+        cy.wait(25000).get(accountName).should('be.visible')
+        cy.url().should('include', 'overview')      
     }
 
 }
+ //log out
+//       after( function(){
+//         cy.log('pula')
+//         cy.pause()
+// })
+
 export default LoginPageBank

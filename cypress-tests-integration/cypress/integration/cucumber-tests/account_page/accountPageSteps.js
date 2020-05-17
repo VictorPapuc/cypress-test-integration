@@ -36,6 +36,7 @@ Then('The user see transactions from date: {string}', date => {
     AccountPage.verifyTransactions(date)
 })
 
+
 Then('Transaction should be in Category {string}', category =>{
 
     AccountPage.verifyTransactionCategory(category)
@@ -47,6 +48,8 @@ Then('{string} is message prompted' ,message=>{
     AccountPage.verifyMessageNoSearchCriteria(message)
 })
 
-
-
+Then('User views Transactions {string} from date: {string} with {int} and {string}',
+    (transactions, date, cost, currency) =>{
+    AccountPage.verifyTransactions(transactions,date,cost,currency)
+})
 

@@ -10,7 +10,6 @@ const InvalidURL = 'https://bezpecnost.csas.cz/flfe/?client_id=georgeclient_cz'
 
 // })
 
-
 defineStep('The user access George Application Login page',()=>{
     
     cy.login(URL)
@@ -33,5 +32,8 @@ defineStep('The user switches login page language to {string}', language =>{
 defineStep('Access Page with correct credentials',()=>{
     LoginPageBank.clickLogInButton()
     LoginPageBank.verifyLoginSuccesfull()
+})
 
+defineStep('Wait {int} seconds for page to load', seconds =>{
+      cy.wait(seconds)
 })
