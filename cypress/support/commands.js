@@ -35,5 +35,5 @@ Cypress.Commands.add('login', url =>{
 Cypress.Commands.add('logout', ()=>{
     const logoutButton ='[data-cy="nav-logout"]'
     cy.wait(2000).get(logoutButton).should('be.visible')
-    cy.get(logoutButton).click({multiple:ture})
+    cy.get(logoutButton).click({multiple:true})
 })

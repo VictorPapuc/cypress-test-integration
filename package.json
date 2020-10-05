@@ -4,6 +4,7 @@
   "description": "Automated Software Testing with Cypress",
   "main": "index.js",
   "dependencies": {
+    "@cypress/snapshot": "^2.1.7",
     "asn1": "^0.2.4",
     "cli-cursor": "^1.0.2",
     "cypress": "^5.3.0",
@@ -59,7 +60,9 @@
     "shebang-regex": "^3.0.0",
     "signal-exit": "^3.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cypress-image-snapshot": "^3.1.1"
+  },
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run"
