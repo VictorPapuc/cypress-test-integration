@@ -1,9 +1,10 @@
-// import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-// import LoginPage from '../../page-objects/LoginPage'
-
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 import LoginPage from '../../page-objects/LoginPage'
+import {} from 'cypress'
 
+const invalidCredentialsErrorMessage = ' Combination of security information is not correct. '
+const invalidDateInput = 'The given date of birth is not valid. Please try again in the format for example 7 December.'
+const nicknameShortErrorMessage = ' Attention! Field "Client number / Username" must have the minimum of 6 characters. '
 
 When('The user switches to {string} language', language => {
 	LoginPage.switchLoginPageLanguage(language)
@@ -35,10 +36,7 @@ When('The user blocks the user', () => {
 
 Then('Error message {string} should appear', errorMessage => {
 
-	//map existing error messages
-	let invalidCredentialsErrorMessage = ' Combination of security information is not correct. '
-	let invalidDateInput = 'The given date of birth is not valid. Please try again in the format for example 7 December.'
-	let nicknameShortErrorMessage = ' Attention! Field "Client number / Username" must have the minimum of 6 characters. '
+
 
 	if (errorMessage === nicknameShortErrorMessage) {
 		LoginPage.verifyErrorMessageForBadNicknameInput(errorMessage)
@@ -51,22 +49,13 @@ Then('Error message {string} should appear', errorMessage => {
 })
 
 Then('The user should see Account Name: {string}', (name: string) => {
-
-	// @ts-ignore
-	LoginPage.verifyLoginSuccesfull(name)
+	LoginPage.verifyLoginSuccessfully(name)
 
 })
 Given('The user access George Application Login page', () => {
-
-	// // cy.logi(URL)
-	// cy.url().should('include', 'george')
+	cy.visit('https://bezpecnost.csas.cz/login/?client_id=georgeclient_cz')
+	cy.url().should('include', 'george')
 	LoginPage.verifyLoginPage()
-
-})
-
-Given('The user access George Login page', () => {
-	// @ts-ignore
-	cy.visit('http://zero.webappsecurity.com/login.html')
 
 })
 
