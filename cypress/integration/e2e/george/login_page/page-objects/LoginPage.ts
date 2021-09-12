@@ -1,18 +1,6 @@
-const LoginPageObjects = Object.freeze({
-	languageButton: '.lang-item-label',
-	loginButton: '.ladda-label',
-	inputNickNameToolBar: '//*[@id="input.nickname"]',
-	inputDays: '//*[@id="input.apin_day"]',
-	checkBox: '[type="checkbox"]',
-	monthList: '//*[@id="input.apin_month"]',
-
-})
-
-const ErrorMessagesLoginPage = Object.freeze({
-	MessageWrongNickNameLengthNumber: '//*[@id="widgetsDiv"]/nickname/app-widget/div/div/div/div/ng-transclude/ng-container/app-bubble-error/p/span',
-	errorMessageBadCredentials: '//*[@id="widgetsDiv"]/div/div/div[1]/div',
-	errorMessageIncorrectDateInput: '//*[@id="widgetsDiv"]/apin/app-widget/div/div/div/div/ng-transclude/ng-container/app-bubble-error/p',
-})
+import '../selectors/selectors'
+import {} from 'cypress'
+import { ERROR_MESSAGES_LOGIN, LOGIN_PAGE_ELEMENTS } from '../selectors/selectors'
 
 const accountName = '#accountName'
 
@@ -20,102 +8,72 @@ export default class LoginPage {
 
 	static verifyLoginPage() {
 
-
-		// @ts-ignore
-		cy.get(LoginPageObjects.languageButton)
+		cy.get(LOGIN_PAGE_ELEMENTS.languageButton)
 			.should('be.visible')
 			.wait(3000)
 			.and('contain', 'Česky')
-		// @ts-ignore
-		cy.get(LoginPageObjects.loginButton).should('be.visible')
+		cy.get(LOGIN_PAGE_ELEMENTS.loginButton).should('be.visible')
 
 	}
 
 	static clickLogInButton() {
-
-		// @ts-ignore
-		cy.get(LoginPageObjects.loginButton).contains('Login').click()
+		cy.get(LOGIN_PAGE_ELEMENTS.loginButton).contains('Login').click()
 	}
 
 	static clickContinueButton() {
-		// @ts-ignore
-		cy.get(LoginPageObjects.loginButton).contains('Continue').click()
+		cy.get(LOGIN_PAGE_ELEMENTS.loginButton).contains('Continue').click()
 	}
 
 	static switchLoginPageLanguage(language) {
-
-		// @ts-ignore
-		cy.get(LoginPageObjects.languageButton).should('be.visible')
-		// @ts-ignore
-		cy.get(LoginPageObjects.languageButton).its('length').should('eq', 2)
-		// @ts-ignore
-		cy.get(LoginPageObjects.languageButton).contains(language).click()
-
+		cy.get(LOGIN_PAGE_ELEMENTS.languageButton).should('be.visible')
+		cy.get(LOGIN_PAGE_ELEMENTS.languageButton).its('length').should('eq', 2)
+		cy.get(LOGIN_PAGE_ELEMENTS.languageButton).contains(language).click()
 	}
 
 	static typeNickname(nickname) {
-		// @ts-ignore
-		cy.get(LoginPageObjects.inputNickNameToolBar).should('be.visible')
-		// @ts-ignore
-		cy.get(LoginPageObjects.inputNickNameToolBar).type(nickname).wait(2000)
+		// 
+		cy.get(LOGIN_PAGE_ELEMENTS.inputNickNameToolBar).should('be.visible')
+		// 
+		cy.get(LOGIN_PAGE_ELEMENTS.inputNickNameToolBar).type(nickname).wait(2000)
 	}
 
 	static verifyErrorMessageForBadNicknameInput(errorMessage) {
 
-		// cy.get(ErrorMessagesLoginPage.errorMessageWrongNickNameLengthNumber)
-		// 	.should('be.visible')
-		// cy.get(ErrorMessagesLoginPage.errorMessageWrongNickNameLengthNumber)
-		// 	.contains(errorMessage)
+		cy.get(ERROR_MESSAGES_LOGIN.errorMessageIncorrectDateInput)
+			.should('be.visible')
+		cy.get(ERROR_MESSAGES_LOGIN.errorMessageBadCredentials)
+			.contains(errorMessage)
 	}
 
 	static inputDays(daysNumber, months) {
-
-		// @ts-ignore
-		cy.get(LoginPageObjects.inputDays).should('be.visible')
-		// @ts-ignore
-		cy.get(LoginPageObjects.inputDays).type(daysNumber).wait(1000)
-
-		// @ts-ignore
-		cy.get(LoginPageObjects.monthList).should('be.visible')
-		// @ts-ignore
-		cy.get(LoginPageObjects.monthList).select(months)
+		cy.get(LOGIN_PAGE_ELEMENTS.inputDays).should('be.visible')
+		cy.get(LOGIN_PAGE_ELEMENTS.inputDays).type(daysNumber).wait(1000)
+		cy.get(LOGIN_PAGE_ELEMENTS.monthList).should('be.visible')
+		cy.get(LOGIN_PAGE_ELEMENTS.monthList).select(months)
 
 	}
 
 	static verifyErrorMessageBadCredentials(errorMessage) {
-
-		// @ts-ignore
-		cy.get(ErrorMessagesLoginPage.errorMessageBadCredentials)
+		cy.get(ERROR_MESSAGES_LOGIN.errorMessageBadCredentials)
 			.should('be.visible')
-		// @ts-ignore
-		cy.get(ErrorMessagesLoginPage.errorMessageBadCredentials)
+		cy.get(ERROR_MESSAGES_LOGIN.errorMessageBadCredentials)
 			.contains(errorMessage)
 	}
 
 	static verifyErrorMessageNotValidDateOfBirth(errorMessage) {
-
-		// @ts-ignore
-		cy.get(ErrorMessagesLoginPage.errorMessageIncorrectDateInput)
+		cy.get(ERROR_MESSAGES_LOGIN.errorMessageIncorrectDateInput)
 			.should('be.visible')
-		// @ts-ignore
-		cy.get(ErrorMessagesLoginPage.errorMessageIncorrectDateInput)
+		cy.get(ERROR_MESSAGES_LOGIN.errorMessageIncorrectDateInput)
 			.contains(errorMessage)
-
 	}
-
 
 	static checkBox() {
-		// @ts-ignore
-		cy.get(LoginPageObjects.checkBox).should('exist')
-		// @ts-ignore
-		cy.get(LoginPageObjects.checkBox).click({ force: true })
+		cy.get(LOGIN_PAGE_ELEMENTS.checkBox).should('exist')
+		cy.get(LOGIN_PAGE_ELEMENTS.checkBox).click({ force: true })
 	}
 
-	static verifyLoginSuccesfull(name) {
-		// @ts-ignore
-		cy.wait(25000).get(accountName).should('be.visible')
-		// @ts-ignore
+	static verifyLoginSuccessfully(accountName:string) {
+		cy.wait(250).get(accountName).should('be.visible')
 		cy.url().should('include', 'overview')
 	}
-
 }
