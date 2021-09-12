@@ -1,0 +1,55 @@
+# Project files
+.idea/
+.vscode/
+*.iml
+
+/build/*
+/tmp
+/tmp/*
+/.awcache
+.cache
+/utils/scripts/lineCounter/reports/*
+
+/coverage/
+
+/public/buildTemp/
+/public/features/
+/public/oidc-sm/
+/.ftppass
+/buildCountry.json
+/public/css/george.css
+/public/*.html
+!/public/csrf_tracking.html
+!/public/frame_bust_tracking.html
+
+# OS generated files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+.awcache
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# NPM files
+node_modules
+npm-debug.log
+packages/localdev/package-lock.json
+
+georgeWorkConfig.json
+
+# Test Coverage #
+jest-julius
+
+# Files produced by Cypress
+/cypress/videos
+/cypress/reports
+/cypress/screenshots
+/cypress/cypress
+/cypress/coverage
+/cypress/.nyc_output
+
+# Cypress tests file downloads
+/cypress/downloads
+debug.log

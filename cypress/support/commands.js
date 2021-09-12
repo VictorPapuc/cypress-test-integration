@@ -8,7 +8,7 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
-//
+//npm
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
 //
@@ -24,9 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import {addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command'
-
-addMatchImageSnapshotCommand()
+// import {addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command'
+//
+// addMatchImageSnapshotCommand()
 
 Cypress.Commands.add('login', url =>{    
     cy.visit(url) 

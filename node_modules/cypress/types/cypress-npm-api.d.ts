@@ -8,6 +8,7 @@
 
 declare namespace CypressCommandLine {
   type HookName = 'before' | 'beforeEach' | 'afterEach' | 'after'
+
   interface TestError {
     name: string
     message: string
@@ -137,7 +138,7 @@ declare namespace CypressCommandLine {
     /**
      * Specify configuration
      */
-    config: Partial<Cypress.ResolvedConfigOptions>
+    config: Cypress.ConfigOptions
     /**
      * Path to the config file to be used.
      *
@@ -155,6 +156,11 @@ declare namespace CypressCommandLine {
      * Path to a specific project
      */
     project: string
+    /**
+     * Specify the type of tests to execute.
+     * @default "e2e"
+     */
+    testingType: Cypress.TestingType
   }
 
   // small utility types to better express meaning of other types
@@ -225,7 +231,7 @@ declare namespace CypressCommandLine {
       startedAt: dateTimeISO
       endedAt: dateTimeISO
       duration: ms
-    },
+    }
     /**
      * Reporter name like "spec"
      */
@@ -255,7 +261,7 @@ declare namespace CypressCommandLine {
        * resolved filename of the spec
        */
       absolute: string
-    },
+    }
     shouldUploadVideo: boolean
   }
 
@@ -358,7 +364,7 @@ declare module 'cypress' {
      })
      ```
      */
-    run(options?: Partial<CypressCommandLine.CypressRunOptions>): Promise<CypressCommandLine.CypressRunResult | CypressCommandLine.CypressFailedRunResult>,
+    run(options?: Partial<CypressCommandLine.CypressRunOptions>): Promise<CypressCommandLine.CypressRunResult | CypressCommandLine.CypressFailedRunResult>
     /**
      * Opens Cypress GUI. Resolves with void when the
      * GUI is closed.
