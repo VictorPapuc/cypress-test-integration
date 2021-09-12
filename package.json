@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/VictorPapuc/cypress-test-integration#readme",
   "devDependencies": {
+    "@bahmutov/add-typescript-to-cypress": "^2.1.2",
     "@cypress/webpack-preprocessor": "^5.6.0"
   }
 }

@@ -1,5 +1,5 @@
-const cucumber = require('cypress-cucumber-preprocessor').default
+const cypressTypeScriptPreprocessor = require('./cy-ts-preprocessor')
 
-module.exports = function(on, config) {
-	on('file:preprocessor', cucumber())
+module.exports = on => {
+  on('file:preprocessor', cypressTypeScriptPreprocessor)
 }
