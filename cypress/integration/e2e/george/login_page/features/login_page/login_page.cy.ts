@@ -65,7 +65,6 @@ Given('The user access George Application Login page', () => {
 })
 
 Given('The user access George Login page', () => {
-	// cy.login(InvalidURL)
 	// @ts-ignore
 	cy.visit('http://zero.webappsecurity.com/login.html')
 
@@ -73,5 +72,4 @@ Given('The user access George Login page', () => {
 
 Given('The user switches login page language to {string}', language => {
 	LoginPage.switchLoginPageLanguage(language)
-
 })
