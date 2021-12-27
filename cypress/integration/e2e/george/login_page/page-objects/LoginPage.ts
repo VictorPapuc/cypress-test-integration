@@ -11,13 +11,14 @@ export default class LoginPage {
 		cy.get(LOGIN_PAGE_ELEMENTS.languageButton)
 			.should('be.visible')
 			.wait(3000)
-			.and('contain', 'Česky')
+            .and('contain', "Česky")
 		cy.get(LOGIN_PAGE_ELEMENTS.loginButton).should('be.visible')
 
 	}
 
 	static clickLogInButton() {
-		cy.get(LOGIN_PAGE_ELEMENTS.loginButton).contains('Login').click()
+		cy.get(LOGIN_PAGE_ELEMENTS.loginButton
+		).contains('Login').click()
 	}
 
 	static clickContinueButton() {

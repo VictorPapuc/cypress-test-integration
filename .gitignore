@@ -53,3 +53,4 @@ jest-julius
 # Cypress tests file downloads
 /cypress/downloads
 debug.log
+/node_modules

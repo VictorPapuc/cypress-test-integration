@@ -17,7 +17,8 @@
   },
   "scripts": {
     "cy:open": "cypress open",
-    "cy:tests": "cypress run"
+    "cy:tests": "cypress run",
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,9 @@
   "homepage": "https://github.com/VictorPapuc/cypress-test-integration#readme",
   "devDependencies": {
     "@bahmutov/add-typescript-to-cypress": "^2.1.2",
-    "@cypress/webpack-preprocessor": "^5.6.0"
+    "@cypress/webpack-preprocessor": "^5.6.0",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "eslint": "7.32.0"
   }
 }

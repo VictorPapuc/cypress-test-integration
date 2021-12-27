@@ -7,7 +7,10 @@ class AccountPage{
     static enterSettingsPage(){
         cy.wait(12000).get(MAIN_MENU_OBJECTS.settingsButtons).should('be.visible')
         cy.get(MAIN_MENU_OBJECTS.settingsButtons).click({multiple:true})
-        cy.wait(3000).get(MAIN_MENU_OBJECTS.profileSettings).should('be.visible')
+        cy.wait(3000).get(MAIN_MENU_OBJECTS.profileSettings).should('be.visible'
+
+
+        )
         cy.get(MAIN_MENU_OBJECTS.profileSettings).click()
     }
 
