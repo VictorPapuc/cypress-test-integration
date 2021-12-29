@@ -4,7 +4,7 @@ const setLanguageValue = ['en', 'cs'];
 
 class AccountPage {
 
-    static enterSettingsPage() {
+    static enterSettingsPage(): void {
         cy.wait(12000).get(MAIN_MENU_OBJECTS.settingsButtons).should('be.visible');
         cy.get(MAIN_MENU_OBJECTS.settingsButtons).click({ multiple: true });
         cy.wait(3000).get(MAIN_MENU_OBJECTS.profileSettings).should('be.visible',
@@ -12,7 +12,7 @@ class AccountPage {
         cy.get(MAIN_MENU_OBJECTS.profileSettings).click();
     }
 
-    static setTheLanguage(language) {
+    static setTheLanguage(language: string): void {
 
         if (language === 'English') {
 
@@ -31,12 +31,13 @@ class AccountPage {
         }
     }
 
-    static enterOverviewPage() {
+    static enterOverviewPage():void {
 
         cy.wait(1400).get(MAIN_MENU_OBJECTS.overViewMenu).should('be.visible');
         cy.get(MAIN_MENU_OBJECTS.overViewMenu).click();
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     static typeInsSearchBar(transactionValue) {
 
         cy.wait(2000).get(MAIN_MENU_OBJECTS.searchBar).should('be.visible');
@@ -44,6 +45,7 @@ class AccountPage {
 
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     static checkBoxDisplayOutgoingTransactionsInRed() {
 
         cy.wait(12000).get(PROFILE_MENU.checkBox).should('be.visible');
@@ -51,7 +53,8 @@ class AccountPage {
 
     }
 
-    static acessTranzaction(transactionPosition) {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    static accessTransaction(transactionPosition):void {
 
         switch (transactionPosition) {
         case 1:
@@ -75,11 +78,13 @@ class AccountPage {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     static verifyTransactionCategory(category) {
         cy.contains(category);
 
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     static verifyColor() {
 
         cy.get(TRANSACTIONS.transaction).should('be.visible');
@@ -88,6 +93,7 @@ class AccountPage {
 
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     static verifyTransactions(transactions, date, cost, currency) {
 
         cy.wait(2000).get(TRANSACTIONS.transaction).should('be.visible');
@@ -126,7 +132,8 @@ class AccountPage {
         }
     }
 
-    static verifyMessageNoSearchCriteria(message) {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    static verifyMessageNoSearchCriteria(message:string) {
         cy.contains(message);
     }
 
