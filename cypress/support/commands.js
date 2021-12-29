@@ -28,12 +28,17 @@
 //
 // addMatchImageSnapshotCommand()
 
-Cypress.Commands.add('login', url =>{    
-    cy.visit(url) 
-})
+// eslint-disable-next-line no-undef
+Cypress.Commands.add('login', url => {
+    // eslint-disable-next-line no-undef
+    cy.visit(url);
+});
 
-Cypress.Commands.add('logout', ()=>{
-    const logoutButton ='[data-cy="nav-logout"]'
-    cy.wait(2000).get(logoutButton).should('be.visible')
-    cy.get(logoutButton).click({multiple:true})
-})
+// eslint-disable-next-line no-undef
+Cypress.Commands.add('logout', () => {
+    const logoutButton = '[data-cy="nav-logout"]';
+    // eslint-disable-next-line no-undef
+    cy.wait(2000).get(logoutButton).should('be.visible');
+    // eslint-disable-next-line no-undef
+    cy.get(logoutButton).click({ multiple: true });
+});
