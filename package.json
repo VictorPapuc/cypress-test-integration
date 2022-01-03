@@ -19,6 +19,8 @@
     "cy:open": "cypress open",
     "cy:tests": "cypress run",
     "cy:dashboard": "npx cypress run --record --key 810725b3-85e5-4841-8551-04a565d87c75",
+    "cy:run": "cypress open -e TAGS='@test'",
+    "cy:headless": "npx cypress-tags run -e TAGS='@test'",
     "lint": "eslint . --ext .ts",
     "prepare": "husky install"
   },

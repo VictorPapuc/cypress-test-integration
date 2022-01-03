@@ -2,15 +2,12 @@ Feature: Account Page
 
 As a valid user I want to log in into Application and Search for transactions
 
-Background: 
- Given The user access George Application Login page
+Background:
  When The user switches login page language to "English"
- And Access Page with correct credentials
 
 Scenario Outline: Search availabe Transactions
  When The user acces the profile Settings
- And Changes the language to "English" 
- And Wait 8000 seconds for page to load
+ And Changes the language to "English"
  And Return to Overview page
  And The user searches for "liftago" transaction
  Then User views Transactions "<Liftago>" from date: "January" with <Cost> and "<Currency>"
@@ -21,8 +18,7 @@ Scenario Outline: Search availabe Transactions
 #User should be replaced with some valid input
 Scenario: Search availabe Tranzaction and access tranzaction
  When The user acces the profile Settings
- And Changes the language to "English" 
- And Wait 8000 seconds for page to load
+ And Changes the language to "English"
  And Return to Overview page
  And The user searches for "liftago" transaction
  And Accesss transaction with position 1 from transaction list
@@ -31,8 +27,7 @@ Scenario: Search availabe Tranzaction and access tranzaction
  #Negative Scenario
 Scenario: Search unavailabe Tranzaction 
  And The user acces the profile Settings
- And Changes the language to "English" 
- And Wait 8000 seconds for page to load
+ And Changes the language to "English"
  And Return to Overview page
  And The user searches for "bad_search" transaction
  Then "I'm sorry, I could not find what you were searching for. Could you please specify your search criteria?" is message prompted
@@ -41,7 +36,7 @@ Scenario: Search Outgoing Tranzaction after checking box: Display outgoing trans
  And The user acces the profile Settings
  And Changes the language to "English" 
  And Check box Display outgoing transactions in red from profile setting
- And Wait 8000 seconds for page to load
+
  And Return to Overview page
  And The user searches for "liftago" transaction
  Then The user should see outgoing transactions in red color
