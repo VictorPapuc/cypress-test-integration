@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: echo
       - run: echo "Hello World"
-      -name: multiline sript
+      - name: multiline sript
         run: |
           node -v
           npm -v
