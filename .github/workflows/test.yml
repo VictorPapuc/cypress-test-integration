@@ -4,7 +4,7 @@ on: [ push ]
 
 jobs:
   run-shell-command:
-    runs-on: ubuntu latest
+    runs-on: ubuntu-latest
     steps:
       - name: echo
         run: echo "Hello World"
