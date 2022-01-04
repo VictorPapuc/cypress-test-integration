@@ -3,14 +3,12 @@ name: First Workflow
 on: [ push ]
 
 jobs:
-  run-github-actions:
+  run-shell-command:
     runs-on: ubuntu-latest
     steps:
-       name: Simple js Action
-        id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: John
-      - name: Log Greeting time
-      run: echo "${{ steps.greet.outputs.time }}"
-
+      - name: echo
+        run: echo "Hello World"
+      - name: multiline sript
+        run: |
+          node -v
+          npm -v
