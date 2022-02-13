@@ -1,0 +1,14 @@
+name: First Workflow
+
+on:
+#  push:
+  pull_request:
+    types: [ closed,assigned,opened,reopened ]
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Node
+        run: |
+          node -v
+          npm -v

@@ -1,7 +1,15 @@
 name: First Workflow
 
-on: [ push ]
-
+#on: [ push,pull_request ]
+on:
+  repository_dispatch:
+    types: [build]
+  schedule:
+    - cron: "0/5 * * * *"
+    - cron: "0/15 * * * *"
+    #  push:
+  pull_request:
+    types: [ closed,assigned,opened,reopened ]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
@@ -17,7 +25,7 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
-          echo "{{github.token}}"
+          echo "${{github.token}}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files After
