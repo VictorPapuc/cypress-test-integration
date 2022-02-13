@@ -3,7 +3,7 @@ name: First Workflow
 #on: [ push,pull_request ]
 on:
   repository_dispatch:
-    types: [build]
+    types: [ build ]
   schedule:
     - cron: "0/5 * * * *"
     - cron: "0/15 * * * *"
@@ -14,6 +14,8 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: payload
+      - run: echo ${{ github.event.client_payload.env }}
       - name: List Node
         run: |
           node -v
