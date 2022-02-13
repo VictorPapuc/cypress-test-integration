@@ -2,13 +2,19 @@ name: First Workflow
 
 #on: [ push,pull_request ]
 on:
+  push:
+    branches:
+      - master
+      - 'feature/*'
   repository_dispatch:
     types: [ build ]
-  schedule:
-    - cron: "0/5 * * * *"
-    - cron: "0/15 * * * *"
+#  schedule:
+#    - cron: "0/5 * * * *"
+#    - cron: "0/15 * * * *"
     #  push:
   pull_request:
+    #    branches:
+    #      - master
     types: [ closed,assigned,opened,reopened ]
 jobs:
   run-github-actions:

@@ -33,7 +33,7 @@ ehthumbs.db
 Thumbs.db
 
 # NPM files
-node_modules
+/node_modules/*
 npm-debug.log
 packages/localdev/package-lock.json
 
@@ -53,4 +53,3 @@ jest-julius
 # Cypress tests file downloads
 /cypress/downloads
 debug.log
-/node_modules
